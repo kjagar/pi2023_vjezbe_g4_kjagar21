@@ -62,7 +62,17 @@ namespace Evaluation_manager___labosi
                 {
                     if ((txtUsername.Text == username) && (txtPassword.Text == password))
                     {
-                        MessageBox.Show("Sve je ispravno uneseno!", "Uspješna prijava", MessageBoxButtons.OK);
+                        // Kreira novu formu
+                        FrmStudents frmStudents = new FrmStudents();
+
+                        // Sakriva ovu formu
+                        Hide();
+
+                        // Otvara novu formu
+                        frmStudents.ShowDialog();
+
+                        // Gasi ovu formu (formu za prijavu)
+                        Close();
                     }
                     else
                     {
