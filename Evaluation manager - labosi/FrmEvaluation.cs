@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Evaluation_manager___labosi.Models;
+using Evaluation_manager___labosi.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +14,45 @@ namespace Evaluation_manager___labosi
 {
     public partial class FrmEvaluation : Form
     {
-        public FrmEvaluation()
+        private Student student; // Student koji se prikazuje u ovoj formi
+
+        public FrmEvaluation(Student selectedStudent)
         {
             InitializeComponent();
+            student = selectedStudent;
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
+            // Nek ostane ovo
+        }
 
+        private void FrmEvaluation_Load(object sender, EventArgs e)
+        {
+            SetFormText(); // Postavlja naziv forme kao ime studenta
+            var activities = ActivityRepository.GetActivities();
+            cboActivities.DataSource = activities;
+        }
+
+        private void SetFormText()
+        {
+            Text = student.FirstName + " " + student.LastName;
+        }
+
+        private void cboActivities_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var currentActivity = cboActivities.SelectedItem as Activity;
+            txtActivityDescription.Text = currentActivity.Description;
+            txtMinForGrade.Text = currentActivity.MinPointsForGrade + "/" + currentActivity.MaxPoints;
+            txtMinForSignature.Text = currentActivity.MinPointsForSignature + "/" + currentActivity.MaxPoints;
+
+            numPoints.Minimum = 0;
+            numPoints.Maximum = currentActivity.MaxPoints;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
