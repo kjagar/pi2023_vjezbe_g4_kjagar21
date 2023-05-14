@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Evaluation_manager___labosi.Models;
+using Evaluation_manager___labosi.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,17 @@ namespace Evaluation_manager___labosi
         public FrmStudents()
         {
             InitializeComponent();
+        }
+
+        private void FrmStudents_Load(object sender, EventArgs e)
+        {
+            ShowStudents();
+        }
+
+        private void ShowStudents()
+        {
+            List<Student> students = StudentRepository.GetStudents(); // Dohvaća studente
+            dgvStudents.DataSource = students;
         }
     }
 }
