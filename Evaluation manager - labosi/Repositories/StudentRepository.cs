@@ -14,7 +14,7 @@ namespace Evaluation_manager___labosi.Repositories
         public static Student GetStudent(int id)
         {
             Student student = null;
-            string sql = $"SELECT * FROM Students WHERE ID = {id}";
+            string sql = $"SELECT * FROM Students WHERE Id = {id}";
 
             // Spaja se na bazu
             DB.OpenConnection();
@@ -56,7 +56,7 @@ namespace Evaluation_manager___labosi.Repositories
         public static Student CreateObject(SqlDataReader reader)
         {
             // Vuče podatke iz čitača
-            int id = int.Parse(reader["id"].ToString());
+            int id = int.Parse(reader["Id"].ToString());
             string firstName = reader["FirstName"].ToString();
             string lastName = reader["LastName"].ToString();
             int.TryParse(reader["Grade"].ToString(), out int grade);
