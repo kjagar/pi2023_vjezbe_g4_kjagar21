@@ -28,6 +28,11 @@ namespace Evaluation_manager___labosi
         {
             List<Student> students = StudentRepository.GetStudents(); // Dohvaća studente
             dgvStudents.DataSource = students;
+
+            dgvStudents.Columns["Id"].DisplayIndex = 0;
+            dgvStudents.Columns["FirstName"].DisplayIndex = 1;
+            dgvStudents.Columns["LastName"].DisplayIndex = 2;
+            dgvStudents.Columns["Grade"].DisplayIndex = 3;
         }
     }
 }
