@@ -30,16 +30,17 @@
         {
             this.dgvStudents = new System.Windows.Forms.DataGridView();
             this.btnEvaluateStudent = new System.Windows.Forms.Button();
+            this.lblStudenti = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvStudents
             // 
             this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudents.Location = new System.Drawing.Point(12, 12);
+            this.dgvStudents.Location = new System.Drawing.Point(12, 27);
             this.dgvStudents.Name = "dgvStudents";
             this.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudents.Size = new System.Drawing.Size(528, 344);
+            this.dgvStudents.Size = new System.Drawing.Size(528, 329);
             this.dgvStudents.TabIndex = 0;
             // 
             // btnEvaluateStudent
@@ -52,11 +53,21 @@
             this.btnEvaluateStudent.UseVisualStyleBackColor = true;
             this.btnEvaluateStudent.Click += new System.EventHandler(this.btnEvaluateStudent_Click);
             // 
+            // lblStudenti
+            // 
+            this.lblStudenti.AutoSize = true;
+            this.lblStudenti.Location = new System.Drawing.Point(12, 9);
+            this.lblStudenti.Name = "lblStudenti";
+            this.lblStudenti.Size = new System.Drawing.Size(52, 13);
+            this.lblStudenti.TabIndex = 2;
+            this.lblStudenti.Text = "Studenti: ";
+            // 
             // FrmStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(552, 417);
+            this.Controls.Add(this.lblStudenti);
             this.Controls.Add(this.btnEvaluateStudent);
             this.Controls.Add(this.dgvStudents);
             this.Name = "FrmStudents";
@@ -64,6 +75,7 @@
             this.Load += new System.EventHandler(this.FrmStudents_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -71,5 +83,6 @@
 
         private System.Windows.Forms.DataGridView dgvStudents;
         private System.Windows.Forms.Button btnEvaluateStudent;
+        private System.Windows.Forms.Label lblStudenti;
     }
 }
