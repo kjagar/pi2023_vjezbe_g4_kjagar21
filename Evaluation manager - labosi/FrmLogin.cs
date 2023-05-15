@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Evaluation_manager___labosi.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -60,7 +61,8 @@ namespace Evaluation_manager___labosi
 
                 case 3:
                 {
-                    if ((txtUsername.Text == username) && (txtPassword.Text == password))
+                        LoggedTeacher = TeacherRepository.GetTeacher(txtUsername.Text);
+                    if (LoggedTeacher != null && LoggedTeacher.CheckPassword(txtPassword.Text))
                     {
                         // Kreira novu formu
                         FrmStudents frmStudents = new FrmStudents();
